@@ -1,1 +1,786 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘, 도서관 - 도서부 & 도서관 소개</title>
+    <!-- 구글 폰트 (Gowun Batang & Noto Sans KR) -->
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 커스텀 스타일시트 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <!-- 🧭 Header & Navigation -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#home" class="logo-link">
+                <img src="Images/logo.png" alt="도서관 로고" class="logo-img">
+                <span class="logo-text">오늘, 도서관</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-item active">홈</a></li>
+                <li><a href="#info" class="nav-item">도서관 정보</a></li>
+                <li><a href="#club" class="nav-item">도서부 소개</a></li>
+                <li><a href="#arrivals" class="nav-item">신간도서</a></li>
+                <li><a href="#events" class="nav-item">이벤트 존</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 🏠 홈 (Home) Section -->
+    <section id="home">
+        <!-- 히어로 배너 슬라이더 -->
+        <div class="hero-slider">
+            <div class="slide active">
+                <img src="Images/main_banner.png" alt="도서관 메인 배너 1" class="slide-img">
+            </div>
+            <div class="slide">
+                <img src="Images/main_banner2.png" alt="도서관 메인 배너 2" class="slide-img">
+            </div>
+            <div class="hero-overlay">
+                <h2 class="hero-title">오늘, 도서관에서 너를<br>기다리는 책 한 권.</h2>
+                <p class="hero-subtitle">따뜻한 아날로그 종이 향기와 설렘이 머무는 공간</p>
+                <div class="status-badge" id="library-status-badge">
+                    <span class="dot"></span>
+                    <span class="status-text">현황 로딩 중...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 홈 그리드 위젯 영역 -->
+        <div class="home-widgets">
+            <!-- 오늘의 한 줄 위젯 -->
+            <div class="quote-widget" id="quote-widget-btn">
+                <div>
+                    <div class="quote-header">
+                        <i class="fa-solid fa-bookmark"></i> 오늘의 한 줄
+                    </div>
+                    <p class="quote-body" id="today-quote-text">"사람은 책을 만들고, 책은 사람을 만든다."</p>
+                </div>
+                <div>
+                    <p class="quote-author" id="today-quote-author">- 신채호 -</p>
+                    <div class="quote-click-info">
+                        <i class="fa-solid fa-circle-info"></i> 클릭하면 추천 도서 정보로 연결됩니다
+                    </div>
+                </div>
+            </div>
+
+            <!-- 퀵 메뉴 -->
+            <div class="quick-menu">
+                <a href="#info" class="quick-item">
+                    <div class="quick-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div class="quick-info">
+                        <h4>도서관 내부 맵</h4>
+                        <p>내가 찾는 책이 어디에 있을까? 한눈에 보기</p>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="quick-item" id="btn-request-book-quick">
+                    <div class="quick-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                    <div class="quick-info">
+                        <h4>희망 도서 신청하기</h4>
+                        <p>원하는 책이 도서관에 없을 때 신청하세요</p>
+                    </div>
+                </a>
+                <a href="#events" class="quick-item">
+                    <div class="quick-icon"><i class="fa-solid fa-ticket"></i></div>
+                    <div class="quick-info">
+                        <h4>블라인드 북 예약</h4>
+                        <p>키워드만 보고 예약하는 비밀스러운 도서 대출</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📚 도서관 정보 (Library Info) Section -->
+    <section id="info">
+        <h2 class="section-title">도서관 이용 안내</h2>
+        <p class="section-desc">도서관을 처음 이용하는 학생들을 위한 직관적인 안내 가이드입니다.</p>
+
+        <div class="info-cards">
+            <!-- 운영 시간 카드 -->
+            <div class="info-card">
+                <h3 class="info-card-title"><i class="fa-solid fa-clock"></i> 운영 시간</h3>
+                <ul class="info-list">
+                    <li>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <span><strong>평일 운영:</strong> 08:30 ~ 17:00 (월요일 ~ 금요일)</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <span><strong>점심시간:</strong> 상시 개방 (점심식사 후 편하게 이용하세요)</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <span><strong>휴관일:</strong> 주말 및 법정 공휴일, 학교 재량 휴업일</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 대출 규정 카드 -->
+            <div class="info-card">
+                <h3 class="info-card-title"><i class="fa-solid fa-book-open-reader"></i> 대출 및 연장 규정</h3>
+                <ul class="info-list">
+                    <li>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <span><strong>대출 권수:</strong> 1인당 최대 3권</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <span><strong>대출 기간:</strong> 대출일 포함 14일간 (2주)</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <span><strong>도서 연장:</strong> 1회 연장 가능 (최대 7일 추가 연장)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 인터랙티브 도서관 맵 -->
+        <div class="map-section">
+            <h3 class="map-title">인터랙티브 도서관 배치도</h3>
+            <p class="map-desc">각 구역에 마우스를 올리거나(Hover) 탭하면 상세 장르와 특징을 알려드립니다.</p>
+            
+            <div class="map-container" id="map-container">
+                <div class="library-grid">
+                    <!-- 소설 구역 -->
+                    <div class="map-zone zone-novel" data-title="소설 & 문학 구역" data-desc="국내외 베스트셀러 소설, 고전 문학, 추리/SF 장르 등이 소장된 구역입니다. 아늑한 소파가 있어 편히 읽기 좋습니다.">
+                        <i class="fa-solid fa-book"></i>
+                        <h5>소설 구역</h5>
+                        <span>문학, 추리, 고전 등</span>
+                    </div>
+                    <!-- 스터디존 -->
+                    <div class="map-zone zone-study" data-title="공부용 스터디존" data-desc="개인 학습 및 모둠 활동을 진행할 수 있는 구역입니다. 밝은 조명과 넓은 원목 테이블, 전기 콘센트가 구비되어 있습니다.">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <h5>스터디존</h5>
+                        <span>학습실, 조용한 자습 공간</span>
+                    </div>
+                    <!-- 신간 코너 -->
+                    <div class="map-zone zone-new" data-title="신간 & 추천도서 코너" data-desc="이달에 새로 들어온 뜨끈뜨끈한 책과 도서부 추천작들이 전시되는 메인 진열 코너입니다.">
+                        <i class="fa-solid fa-star"></i>
+                        <h5>신간 코너</h5>
+                        <span>이달의 신작 전시</span>
+                    </div>
+                    <!-- 사서 대출데스크 -->
+                    <div class="map-zone zone-desk" data-title="도서 대출/반납 데스크" data-desc="도서의 대출, 반납 및 도서관 이용 관련 질문에 답해 드립니다. 도서부원들과 사서 선생님이 항상 대기 중입니다!">
+                        <i class="fa-solid fa-id-card"></i>
+                        <h5>대출데스크</h5>
+                        <span>대출/반납, 안내처</span>
+                    </div>
+                    <!-- 멀티미디어 Zone -->
+                    <div class="map-zone zone-multi" data-title="멀티미디어 코너" data-desc="온라인 자료 검색, 인터넷 강의 시청, DVD 감상이 가능한 PC들이 준비되어 있습니다. 사전에 데스크에서 신청 후 이용해 주세요.">
+                        <i class="fa-solid fa-desktop"></i>
+                        <h5>멀티미디어 구역</h5>
+                        <span>검색용 PC, 학습 미디어</span>
+                    </div>
+                    <!-- 공부법/진로 자료실 -->
+                    <div class="map-zone zone-rest" data-title="진로 & 교양 코너" data-desc="대학 입시 자료, 전공 소개 서적, 과목별 공부법 도서들이 비치되어 있습니다. 꿈을 향해 나아가는 공간입니다.">
+                        <i class="fa-solid fa-compass"></i>
+                        <h5>진로 및 교양</h5>
+                        <span>공부법, 진로 참고 서적</span>
+                    </div>
+                </div>
+                <!-- 동적 툴팁 -->
+                <div class="map-tooltip" id="map-tooltip">
+                    <h6 id="tooltip-title">구역 이름</h6>
+                    <p id="tooltip-desc">상세 설명</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-container">
+            <button class="btn-primary" id="btn-request-book"><i class="fa-solid fa-paper-plane"></i> 읽고 싶은 희망 도서 신청하기</button>
+        </div>
+    </section>
+
+    <!-- 👥 도서부 (Library Club) Section -->
+    <section id="club">
+        <h2 class="section-title">우리를 소개합니다</h2>
+        <p class="section-desc">책과 사람을 잇는 문화를 만들어가는 도서관의 주인공, 도서부원들을 소개합니다.</p>
+
+        <!-- 도서부원 캐릭터 비주얼 배너 -->
+        <div class="club-intro">
+            <div class="club-visual">
+                <img src="Images/character.png" alt="도서부 공식 캐릭터" class="club-char-img">
+            </div>
+            <div class="club-text">
+                <h3>"우리는 도서관에 숨결을 불어넣는 크루입니다."</h3>
+                <p>
+                    단순히 반납 도서를 정리하는 동아리라고 생각하셨나요? 우리 도서부는 독서 퀴즈 대회, 블라인드 북 이벤트 등 온/오프라인 문화 이벤트를 기획하고, 매달 신간 리뷰를 작성하며 도서관을 학생들이 가장 머물고 싶은 편안한 문화 복합 공간으로 바꿔가고 있습니다.
+                </p>
+                <div class="club-activities">
+                    <div class="activity-badge">
+                        <i class="fa-solid fa-arrows-spin"></i>
+                        <span>정리 및 사서 업무</span>
+                    </div>
+                    <div class="activity-badge">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>이벤트 기획/진행</span>
+                    </div>
+                    <div class="activity-badge">
+                        <i class="fa-solid fa-pen-fancy"></i>
+                        <span>북 리뷰 콘텐츠 작성</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 활동 갤러리 -->
+        <div class="gallery-section">
+            <h3 class="gallery-title"><i class="fa-regular fa-image"></i> 도서부 주요 활동 갤러리</h3>
+            
+            <div class="gallery-grid">
+                <!-- 갤러리 항목 1 -->
+                <div class="gallery-item" data-title="가을밤 북 콘서트 (10월)" data-desc="낙엽이 지는 가을 저녁, 도서관에서 어쿠스틱 연주와 함께 서로가 좋아하는 시와 구절을 낭독하는 힐링 북 콘서트를 기획하고 진행했습니다. 차분한 조명 아래서 나눴던 이야기가 기억에 오래 남습니다." data-image="Images/main_banner.png">
+                    <img src="Images/main_banner.png" alt="북 콘서트 활동 사진">
+                    <div class="gallery-info">
+                        <span class="gallery-tag">콘서트</span>
+                        <h4 class="gallery-item-title">가을밤 북 콘서트</h4>
+                        <p class="gallery-item-desc">낭만과 선율이 가득했던 가을 저녁의 추억</p>
+                    </div>
+                </div>
+
+                <!-- 갤러리 항목 2 -->
+                <div class="gallery-item" data-title="신입생 도서관 오리엔테이션 (3월)" data-desc="새로 입학한 신입생들에게 도서관의 이용 규칙을 아기자기한 캐릭터 가이드를 통해 설명하고, 보물 찾기 미션을 통해 도서관 구조를 쉽게 익힐 수 있도록 도왔습니다." data-image="Images/character.png">
+                    <img src="Images/character.png" alt="신입생 오리엔테이션 사진">
+                    <div class="gallery-info">
+                        <span class="gallery-tag">안내</span>
+                        <h4 class="gallery-item-title">신입생 오리엔테이션</h4>
+                        <p class="gallery-item-desc">캐릭터 스티커와 보물찾기로 친해진 도서관</p>
+                    </div>
+                </div>
+
+                <!-- 갤러리 항목 3 -->
+                <div class="gallery-item" data-title="독서 캠프 & 밤샘 독서 (7월)" data-desc="방학 기간을 맞아 금요일 저녁부터 토요일 아침까지 도서관을 전면 개방해 밤을 새워 집중해서 책을 읽고, 서로 읽은 감상을 새벽 감성으로 나눴던 짜릿한 추억입니다." data-image="Images/main_banner2.png">
+                    <img src="Images/main_banner2.png" alt="밤샘 독서 캠프 사진">
+                    <div class="gallery-info">
+                        <span class="gallery-tag">독서 캠프</span>
+                        <h4 class="gallery-item-title">여름 밤샘 독서 캠프</h4>
+                        <p class="gallery-item-desc">도서관의 불이 꺼지지 않던 여름밤의 은밀한 독서</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 부원 모집 섹션 -->
+        <div class="recruitment-section">
+            <!-- 디데이 카드 -->
+            <div class="recruitment-banner">
+                <h4>제24기 도서부 신입 부원 모집</h4>
+                <p>책을 사랑하고, 특별한 학교 문화를 만들어갈 당신을 기다립니다.</p>
+                <div class="countdown-timer">
+                    <div class="timer-unit">
+                        <span class="timer-num" id="timer-days">00</span>
+                        <span class="timer-label">Days</span>
+                    </div>
+                    <div class="timer-unit">
+                        <span class="timer-num" id="timer-hours">00</span>
+                        <span class="timer-label">Hours</span>
+                    </div>
+                    <div class="timer-unit">
+                        <span class="timer-num" id="timer-minutes">00</span>
+                        <span class="timer-label">Mins</span>
+                    </div>
+                    <div class="timer-unit">
+                        <span class="timer-num" id="timer-seconds">00</span>
+                        <span class="timer-label">Secs</span>
+                    </div>
+                </div>
+                <button class="btn-accent" id="btn-recruit-apply">도서부 지원 안내 보기</button>
+            </div>
+
+            <!-- FAQ 아코디언 -->
+            <div class="faq-accordion">
+                <!-- 아코디언 1 -->
+                <div class="faq-item">
+                    <button class="faq-header">
+                        <span>Q1. 책을 많이 읽지 않아도 지원할 수 있나요?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            네, 물론입니다! 도서부 활동에는 도서 분류 및 대출 관리뿐 아니라 오프라인 행사 기획, 온라인 홈페이지 관리, 웹 포스터 디자인 등 다양한 역할이 존재합니다. 도서관과 조화롭게 지내고 책임감이 강한 분이라면 누구나 환영합니다.
+                        </div>
+                    </div>
+                </div>
+                <!-- 아코디언 2 -->
+                <div class="faq-item">
+                    <button class="faq-header">
+                        <span>Q2. 도서부의 주요 활동 시간은 언제인가요?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            주요 일과로는 점심시간 및 방과 후 대출 반납 데스크 당번제 운영(일주일에 1~2회)이 있으며, 동아리 특별활동 시간에 한 달에 한 번 정도 모여 활동 피드백 및 다음 달 문화행사를 기획하고 준비합니다.
+                        </div>
+                    </div>
+                </div>
+                <!-- 아코디언 3 -->
+                <div class="faq-item">
+                    <button class="faq-header">
+                        <span>Q3. 도서부원만의 특별한 혜택이 있을까요?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            도서부원은 일반 학생들에 비해 대출 권수가 3권에서 5권으로 우대되며, 무엇보다 도서관 한 편에 있는 아늑한 동아리 전용 공간에서 힐링할 수 있습니다. 또한 활동 우수자는 연말 생활기록부 독서 활동 서술 및 봉사활동 시간 부여 혜택을 제공합니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📚 신간도서 목록 (New Arrivals) Section -->
+    <section id="arrivals">
+        <h2 class="section-title">이달의 신간 도서</h2>
+        <p class="section-desc">이번 달 새로 들어온 도서 목록과 도서부원들의 솔직 발랄한 3줄 요약 리뷰를 구경해 보세요.</p>
+
+        <!-- 카테고리 필터 칩 -->
+        <div class="filter-container">
+            <button class="filter-chip active" data-filter="all">전체보기</button>
+            <button class="filter-chip" data-filter="#소설">#소설</button>
+            <button class="filter-chip" data-filter="#진로/과학">#진로/과학</button>
+            <button class="filter-chip" data-filter="#웹툰/에세이">#웹툰/에세이</button>
+            <button class="filter-chip" data-filter="#공부법">#공부법</button>
+        </div>
+
+        <!-- 도서 그리드 목록 -->
+        <div class="books-grid" id="books-grid">
+            <!-- 책 1 (소설) -->
+            <div class="book-card" data-category="#소설">
+                <div class="book-card-inner">
+                    <!-- 앞면 -->
+                    <div class="book-front">
+                        <div class="book-cover-area">
+                            <span class="book-pick-badge">부원's Pick</span>
+                            <div class="book-spine-mock" style="background-color: #5C6BC0;">
+                                불편한 편의점
+                            </div>
+                        </div>
+                        <div class="book-info-area">
+                            <h4 class="book-title">불편한 편의점</h4>
+                            <p class="book-author">김호연 저</p>
+                        </div>
+                    </div>
+                    <!-- 뒷면 (3줄 요약 리뷰) -->
+                    <div class="book-back">
+                        <div class="review-header">
+                            <span class="review-tag">#소설</span>
+                            <h4 class="review-book-title">불편한 편의점</h4>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-text">
+                                • 편의점이라는 친근한 곳에서 펼쳐지는 기적 같은 힐링 소설!<br>
+                                • 정체불명의 야간 알바생 '독고' 씨의 유쾌한 정답 맞추기<br>
+                                • 다 읽고 나면 가슴이 뭉클하고 마음이 따뜻해지는 도서.
+                            </p>
+                        </div>
+                        <div class="review-footer">
+                            <span class="reviewer-name">Review by 부원 민아</span>
+                            <span class="book-status-lbl">대출가능</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 책 2 (진로/과학) -->
+            <div class="book-card" data-category="#진로/과학">
+                <div class="book-card-inner">
+                    <div class="book-front">
+                        <div class="book-cover-area">
+                            <div class="book-spine-mock" style="background-color: #66BB6A;">
+                                코스모스
+                            </div>
+                        </div>
+                        <div class="book-info-area">
+                            <h4 class="book-title">코스모스</h4>
+                            <p class="book-author">칼 세이건 저</p>
+                        </div>
+                    </div>
+                    <div class="book-back">
+                        <div class="review-header">
+                            <span class="review-tag">#진로/과학</span>
+                            <h4 class="review-book-title">코스모스</h4>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-text">
+                                • 우주의 탄생부터 생명체의 경이로움까지 넓은 바다를 탐색하듯 기술한 고전<br>
+                                • 분량이 두껍지만 우주와 과학을 사랑하는 학생이라면 반드시 읽어야 할 책!<br>
+                                • 밤하늘의 무수히 많은 별 속에서 나 자신의 존재를 돌아보게 돕는 문장들.
+                            </p>
+                        </div>
+                        <div class="review-footer">
+                            <span class="reviewer-name">Review by 부원 도윤</span>
+                            <span class="book-status-lbl">대출가능</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 책 3 (웹툰/에세이) -->
+            <div class="book-card" data-category="#웹툰/에세이">
+                <div class="book-card-inner">
+                    <div class="book-front">
+                        <div class="book-cover-area">
+                            <span class="book-pick-badge">부원's Pick</span>
+                            <div class="book-spine-mock" style="background-color: #FF7043;">
+                                죽고 싶지만 떡볶이는 먹고 싶어
+                            </div>
+                        </div>
+                        <div class="book-info-area">
+                            <h4 class="book-title">죽고 싶지만 떡볶이는 먹고 싶어</h4>
+                            <p class="book-author">백세희 저</p>
+                        </div>
+                    </div>
+                    <div class="book-back">
+                        <div class="review-header">
+                            <span class="review-tag">#웹툰/에세이</span>
+                            <h4 class="review-book-title">죽고 싶지만 떡볶이는 먹고 싶어</h4>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-text">
+                                • 겉으로는 멀쩡해 보이지만 우울한 기분으로 지쳐 있는 현대 청춘들의 자화상<br>
+                                • 솔직하고 투박하지만 작가와 정신과 의사의 담백한 상담 대화 기록<br>
+                                • 우울하면서도 떡볶이는 당기는 내 모순된 마음을 토닥여 줍니다.
+                            </p>
+                        </div>
+                        <div class="review-footer">
+                            <span class="reviewer-name">Review by 부원 지우</span>
+                            <span class="book-status-lbl">대출중</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 책 4 (공부법) -->
+            <div class="book-card" data-category="#공부법">
+                <div class="book-card-inner">
+                    <div class="book-front">
+                        <div class="book-cover-area">
+                            <div class="book-spine-mock" style="background-color: #AB47BC;">
+                                혼자 공부하는 공부법
+                            </div>
+                        </div>
+                        <div class="book-info-area">
+                            <h4 class="book-title">혼자 공부하는 공부법</h4>
+                            <p class="book-author">조승우 저</p>
+                        </div>
+                    </div>
+                    <div class="book-back">
+                        <div class="review-header">
+                            <span class="review-tag">#공부법</span>
+                            <h4 class="review-book-title">혼자 공부하는 공부법</h4>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-text">
+                                • 학원 뺑뺑이에 지쳤다면 스스로 내 안의 메타인지를 켜는 솔루션!<br>
+                                • 개념을 남에게 설명하듯 익히는 진짜 1등급 공부 전략 제안<br>
+                                • 작심삼일 계획에서 탈출해 지속 가능한 나만의 진도표 짜는 법!
+                            </p>
+                        </div>
+                        <div class="review-footer">
+                            <span class="reviewer-name">Review by 부원 준서</span>
+                            <span class="book-status-lbl">대출가능</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎁 이벤트 존 (Event Zone) Section -->
+    <section id="events">
+        <h2 class="section-title">도서관 이벤트 존</h2>
+        <p class="section-desc">온라인 홈페이지 활동을 통해 도서관을 한 번 더 방문하고 혜택을 챙겨가는 게이미피케이션 존입니다.</p>
+
+        <div class="event-grid">
+            <!-- 온라인 스탬프 투어 -->
+            <div class="event-box">
+                <h3 class="event-box-title"><i class="fa-solid fa-map-pin"></i> 온라인 '책갈피' 스탬프 투어</h3>
+                <p class="event-box-desc">
+                    도서부원들이 숨겨둔 도서관 보물찾기 암호 및 퀴즈 미션입니다! 매주 미션을 클리어하면 온라인 스탬프가 발급되며, 해당 화면을 가지고 도서관을 방문해 대출대에서 도서부원에게 인증하면 소정의 간식이나 실물 책갈피를 드립니다.
+                </p>
+                <div class="stamp-mission-card">
+                    <span class="mission-tag">이번 주의 미션</span>
+                    <h4 class="mission-title">"도서관 시(Poem) 코너에 숨겨진 비밀 암호를 찾아라!"</h4>
+                    <button class="btn-sm" id="btn-quiz-start">퀴즈 도전하기</button>
+                </div>
+            </div>
+
+            <!-- 블라인드 북 예약 -->
+            <div class="event-box">
+                <h3 class="event-box-title"><i class="fa-solid fa-gift"></i> 블라인드 북(Blind Book) 예약</h3>
+                <p class="event-box-desc">
+                    책 표지를 감성 포장지로 가리고 흥미로운 해시태그 키워드만 보여주는 신비로운 대출 코너입니다. 선착순 예약을 통해 내일 오후 5시까지 대출대로 방문해서 비밀 책을 대출하는 설렘을 직접 체험해 보세요.
+                </p>
+                <div class="blind-books">
+                    <!-- 블라인드 북 1 -->
+                    <div class="blind-book-card">
+                        <div class="blind-cover">
+                            <i class="fa-solid fa-question"></i>
+                        </div>
+                        <div class="blind-tags">
+                            <span class="blind-tag-item">#눈물주의</span>
+                            <span class="blind-tag-item">#인생2회차</span>
+                            <span class="blind-tag-item">#시간여행</span>
+                        </div>
+                        <button class="btn-sm" onclick="reserveBlindBook('#눈물주의 #인생2회차 #시간여행')">예약하기</button>
+                    </div>
+                    <!-- 블라인드 북 2 -->
+                    <div class="blind-book-card">
+                        <div class="blind-cover">
+                            <i class="fa-solid fa-question"></i>
+                        </div>
+                        <div class="blind-tags">
+                            <span class="blind-tag-item">#소름돋는반전</span>
+                            <span class="blind-tag-item">#셜록홈즈느낌</span>
+                            <span class="blind-tag-item">#밤샘주의</span>
+                        </div>
+                        <button class="btn-sm" onclick="reserveBlindBook('#소름돋는반전 #셜록홈즈느낌 #밤샘주의')">예약하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 방구석 한 줄평 (방명록) -->
+        <div class="guestbook-section">
+            <div class="guestbook-container">
+                <!-- 등록 폼 -->
+                <div class="guestbook-form-area">
+                    <h4>방구석 한 줄평</h4>
+                    <p>내가 최근 재밌게 읽은 책의 짧은 평을 포스트잇으로 남겨주세요. 매달 선정된 우수작 3점은 도서관 입구 복도 게시판에 손글씨 캘리그라피로 전시되고 문화상품권이 지급됩니다!</p>
+                    
+                    <form class="comment-form" id="guestbook-form">
+                        <div class="input-row">
+                            <input type="text" id="input-writer" class="form-input" placeholder="이름/닉네임" required>
+                            <input type="text" id="input-book" class="form-input" placeholder="책 제목" required>
+                        </div>
+                        <textarea id="input-content" class="form-input" placeholder="가장 인상 깊었던 한 줄평을 남겨주세요 (50자 이내)" maxlength="80" required></textarea>
+                        <button type="submit" class="btn-primary"><i class="fa-solid fa-circle-plus"></i> 포스트잇 남기기</button>
+                    </form>
+                </div>
+
+                <!-- 포스트잇 벽판 -->
+                <div class="postit-board" id="postit-board">
+                    <!-- 기본 샘플 포스트잇 1 -->
+                    <div class="postit">
+                        <span class="postit-badge">우수작</span>
+                        <div class="postit-header">
+                            <span class="postit-writer">지우(2학년)</span>
+                            <span class="postit-book">불편한 편의점</span>
+                        </div>
+                        <p class="postit-content">"불편한 독고 씨가 가르쳐 준, 가장 편안한 소통의 온기."</p>
+                        <div class="postit-footer">
+                            <span class="postit-date">07월 15일</span>
+                            <div class="postit-like-btn" onclick="likePostit(this, 12)">
+                                <i class="fa-regular fa-heart"></i> <span class="like-count">12</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 기본 샘플 포스트잇 2 -->
+                    <div class="postit">
+                        <div class="postit-header">
+                            <span class="postit-writer">현서(1학년)</span>
+                            <span class="postit-book">코스모스</span>
+                        </div>
+                        <p class="postit-content">"우주라는 바다 앞에서 먼지만도 못한 나라는 고귀한 존재."</p>
+                        <div class="postit-footer">
+                            <span class="postit-date">07월 16일</span>
+                            <div class="postit-like-btn" onclick="likePostit(this, 5)">
+                                <i class="fa-regular fa-heart"></i> <span class="like-count">5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 기본 샘플 포스트잇 3 -->
+                    <div class="postit">
+                        <div class="postit-header">
+                            <span class="postit-writer">익명(3학년)</span>
+                            <span class="postit-book">혼자 공부법</span>
+                        </div>
+                        <p class="postit-content">"학원만 다니던 내 눈을 뜨게 만들어준 메타인지의 비밀 책!"</p>
+                        <div class="postit-footer">
+                            <span class="postit-date">07월 17일</span>
+                            <div class="postit-like-btn" onclick="likePostit(this, 8)">
+                                <i class="fa-regular fa-heart"></i> <span class="like-count">8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✉️ 모달 백드롭 및 다이얼로그 (Modals) -->
+
+    <!-- 1. 희망 도서 신청 모달 -->
+    <div class="modal-backdrop" id="modal-request-book">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <h4>희망 도서 온라인 신청서</h4>
+                <button class="modal-close" onclick="closeModal('modal-request-book')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form class="modal-form" id="book-request-form">
+                    <div class="modal-form-group">
+                        <label for="req-student-info">학년 / 반 / 이름</label>
+                        <input type="text" id="req-student-info" class="form-input" placeholder="예: 1학년 2반 14번 김철수" required>
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="req-book-title">도서명</label>
+                        <input type="text" id="req-book-title" class="form-input" placeholder="신청하고 싶은 책 제목" required>
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="req-book-author">저자 및 출판사</label>
+                        <input type="text" id="req-book-author" class="form-input" placeholder="저자 이름 및 출판사" required>
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="req-reason">신청 사유</label>
+                        <textarea id="req-reason" class="form-input" style="height: 80px;" placeholder="이 책을 다른 학생들과 함께 읽고 싶은 이유를 적어주세요" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-block">도서 신청 제출하기</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 오늘의 한 줄 도서 상세 모달 -->
+    <div class="modal-backdrop" id="modal-quote-detail">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <h4>추천 도서 상세 정보</h4>
+                <button class="modal-close" onclick="closeModal('modal-quote-detail')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px;">
+                    <div class="book-spine-mock" id="quote-modal-book-spine" style="background-color: #5C6BC0; width: 100px; height: 140px; font-size: 0.85rem; flex-shrink: 0;">
+                        불편한 편의점
+                    </div>
+                    <div>
+                        <h4 id="quote-modal-title" style="font-family: var(--font-title); font-size: 1.25rem; color: var(--color-primary); margin-bottom: 6px;">불편한 편의점</h4>
+                        <p id="quote-modal-author" style="font-size: 0.85rem; color: var(--color-text-light); margin-bottom: 12px;">저자: 김호연 | 출판사: 나무옆의자</p>
+                        <span class="status-badge open" style="padding: 4px 10px; font-size: 0.78rem;" id="quote-modal-status-badge"><span class="dot"></span> 대출 가능</span>
+                    </div>
+                </div>
+                <div style="border-top: 1px solid var(--color-border); padding-top: 15px;">
+                    <h5 style="font-family: var(--font-title); color: var(--color-primary); margin-bottom: 8px;">도서 소개</h5>
+                    <p style="font-size: 0.85rem; color: var(--color-text-light); line-height: 1.6;" id="quote-modal-desc">
+                        서울역에서 노숙인 생활을 하던 '독고' 씨가 우연한 계기로 독특한 동네 편의점 야간 알바로 취직해 개성 넘치는 이웃 손님들과 교감하며 가슴 따뜻한 기적을 만들어가는 소설입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. 스탬프 투어 퀴즈 모달 -->
+    <div class="modal-backdrop" id="modal-quiz">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <h4>책갈피 스탬프 투어 퀴즈 미션</h4>
+                <button class="modal-close" onclick="closeModal('modal-quiz')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <!-- 퀴즈 단계 -->
+                <div id="quiz-question-step">
+                    <div class="quiz-question-box">
+                        <strong>Q.</strong> 한국 고등학생 필독서이자, 칼 세이건이 저술한 인류의 고전 교양 천문학 도서의 제목은 무엇일까요?
+                    </div>
+                    <form id="quiz-form" style="display: flex; flex-direction: column; gap: 12px;">
+                        <input type="text" id="quiz-answer-input" class="form-input" placeholder="한글 정답을 입력하세요" required>
+                        <button type="submit" class="btn-primary btn-block">정답 확인하기</button>
+                    </form>
+                </div>
+
+                <!-- 결과 단계 (스탬프 스탬핑 애니메이션) -->
+                <div class="quiz-result-area" id="quiz-result-step">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h4 style="font-family: var(--font-title); font-size: 1.25rem; color: var(--color-primary); margin-bottom: 8px;">정답입니다! 미션 클리어!</h4>
+                    <p style="font-size: 0.85rem; color: var(--color-text-light);">아래 모바일 스탬프 화면을 도서관 방문 시 대출데스크에서 보여주시면 맛있는 초콜릿과 실물 가을 책갈피를 선물로 받으실 수 있습니다.</p>
+                    <div class="stamp-stamp">
+                        <i class="fa-solid fa-stamp"></i>
+                        <span>미션 완료</span>
+                    </div>
+                    <button class="btn-accent" onclick="closeModal('modal-quiz')">확인 및 닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. 블라인드 북 예약 완료 모달 -->
+    <div class="modal-backdrop" id="modal-blind-confirm">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <h4>비밀 예약 완료</h4>
+                <button class="modal-close" onclick="closeModal('modal-blind-confirm')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" style="text-align: center; padding: 30px 20px;">
+                <i class="fa-solid fa-circle-check" style="font-size: 3rem; color: var(--color-accent); margin-bottom: 20px;"></i>
+                <h4 style="font-family: var(--font-title); font-size: 1.25rem; color: var(--color-primary); margin-bottom: 12px;">블라인드 북 예약이 완료되었습니다!</h4>
+                <p style="font-size: 0.88rem; color: var(--color-text-light); line-height: 1.6; margin-bottom: 20px;">
+                    대출 예약이 선착순으로 접수되었습니다.<br>
+                    <strong>내일 오후 5시까지</strong> 도서관 대출데스크로 찾아오셔서<br>
+                    "블라인드 북 예약을 하고 왔어요"라고 말씀해 주세요.<br>
+                    <span style="color: var(--color-accent); font-weight: 500;" id="blind-booked-tags">#눈물주의</span>
+                </p>
+                <button class="btn-accent" onclick="closeModal('modal-blind-confirm')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. 활동 갤러리 라이트박스 -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <img src="" alt="갤러리 확대 이미지" class="lightbox-img" id="lightbox-img">
+            <div class="lightbox-body">
+                <h4 class="lightbox-title" id="lightbox-title">가을 북 콘서트</h4>
+                <p class="lightbox-desc" id="lightbox-desc">상세 내용 설명이 손글씨 줄무늬 가을 감성 위로 얹어지는 곳</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🎨 수동 토글용 시뮬레이션 제어기 -->
+    <div class="simulation-control">
+        <span>⏰ 도서관 운영 시뮬레이션</span>
+        <label class="toggle-switch">
+            <input type="checkbox" id="sim-time-toggle">
+            <span class="slider-round"></span>
+        </label>
+        <span id="sim-status-lbl">자동 (기본값)</span>
+    </div>
+
+    <!-- 👣 Footer -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">오늘, 도서관</div>
+                <div class="footer-info">
+                    <p>© 2026. 한빛고등학교 도서부(24기) & 도서관. All rights reserved.</p>
+                    <p>대표 메일: hanbit_lib@school.hs.kr | 연락처: 02-1234-5678</p>
+                </div>
+            </div>
+            <div class="footer-sns">
+                <a href="https://instagram.com" target="_blank" class="sns-link" aria-label="도서관 인스타그램 바로가기"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" class="sns-link" aria-label="도서관 유튜브 채널 바로가기"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://blog.naver.com" target="_blank" class="sns-link" aria-label="도서부 블로그 바로가기"><i class="fa-solid fa-blog"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 커스텀 자바스크립트 -->
+    <script src="app.js"></script>
+</body>
+</html>
